@@ -12,7 +12,7 @@ module.exports = (db) => {
   router.get("/search/:query", (req, res) => {
     const userID = [req.session.userId];
     if (!userID) {
-      res.status(403).send(`lol fuck you`);
+      res.status(403).send(`Invalid user`);
     } else {
       getSongsBySearch(req.params.query, db)
         .then(result => {
